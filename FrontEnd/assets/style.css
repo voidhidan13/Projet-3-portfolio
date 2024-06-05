@@ -47,6 +47,9 @@ table {
 	border-spacing: 0;
 }
 /** end reset css**/
+:root { 
+	--main-color : #1D6154;
+}
 body {
 	max-width: 1140px;
 	margin:auto;
@@ -121,10 +124,54 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
+
+#portfolio {
+	margin-top: 130px ;
+}
+
 #portfolio h2 {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
+
+/* AJOUT BARRRE FILTRE*/
+
+.filter_bar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 15px;
+	width: 100%;
+	margin-bottom: 50px;
+	margin-top: 50px;
+}
+
+.filter {
+	display: flex;
+	background-color: white;
+	border: 1px solid var(--main-color);
+	border-radius: 60px;
+	font-family: 'syne', sans-serif;
+	font-size:  16px;
+	font-weight: 700;
+	text-align: center;
+	color: var(--main-color);
+	padding: 9px 30px;
+
+}
+
+/* AU SURVOL/CLICK*/ 
+
+.filter:hover{
+	background-color: var(--main-color);
+	color: white;
+	cursor: pointer;
+}
+
+
+
 .gallery {
 	width: 100%;
 	display: grid;
@@ -133,10 +180,20 @@ li:hover {
 	grid-row-gap: 20px;
 }
 
+.gallery p { 
+	margin-top: 5px;
+}
+
 .gallery img {
 	width: 100%;
 
 }
+
+figcaption {
+	margin-top: 5px;
+}
+
+
 #contact {
 	width: 50%;
 margin: auto;
@@ -185,4 +242,3 @@ footer nav ul {
 	justify-content: flex-end;
 	margin: 2em
 }
-
