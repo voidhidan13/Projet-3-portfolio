@@ -63,7 +63,7 @@ boutonObjets.addEventListener("click", () => {
 
 // "Appartements"
 const boutonAppartement = document.querySelector('[data-category="Appartements"]');
-boutonObjets.addEventListener("click", () => {
+boutonAppartement.addEventListener("click", () => {
    
     const projetsFiltres = projets.filter(projet => {
         return projet.category.name === "Appartements";
