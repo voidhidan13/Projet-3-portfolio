@@ -245,22 +245,43 @@ footer nav ul {
 
 /* PAGE LOGIN*/
 
-.title-div {
-	display: flex;
-	align-items: center ;
-	justify-content: center;
-	margin-top: 150px;
+
+.loginbody {
+	width: 100%;
+
 }
 
-.form-div {
+
+.loginbackground {
+	background-color: 
+	#FFFEF8;
+}
+
+.logintitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+.loginform {
     display: flex;
     flex-direction: column;
     align-items: center; /* Centre les éléments horizontalement */
     width: 100%;
 }
 
-.form-div label, input {
+.loginform label {
     margin-bottom: 10px;
-    width: 379px; 
-	flex-grow: 1;/* Assurez-vous que les éléments prennent toute la largeur du formulaire */
-} 
+    width: 100%; /* Assurez-vous que les éléments prennent toute la largeur du formulaire */
+}
+
+.loginform input {
+	max-width: 379px;
+	margin-bottom: 10px ;
+}
+
+.loginform form {
+	display: flex;
+	flex-direction: column;
+}
