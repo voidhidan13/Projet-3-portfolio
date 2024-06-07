@@ -251,6 +251,9 @@ footer nav ul {
 
 }
 
+.login a {
+   text-decoration: none;
+}
 
 .loginbackground {
 	background-color: 
@@ -276,12 +279,27 @@ footer nav ul {
     width: 100%; /* Assurez-vous que les éléments prennent toute la largeur du formulaire */
 }
 
-.loginform input {
-	max-width: 379px;
-	margin-bottom: 10px ;
+.loginmail,.loginpassword  {
+	width: 379px;
+	height: 51px;
+	margin-bottom: 35px ;
+	border-color: transparent;
+	box-shadow: 0px 4px 14px 0px #00000017;
+	
 }
 
 .loginform form {
 	display: flex;
 	flex-direction: column;
+	margin-top: 37px;
+	
+	
+}
+
+.loginsubmit {
+	width: 179px;
+	height: 36px;
+	border-color: transparent;
+	border-radius: 60px;
+
 }
