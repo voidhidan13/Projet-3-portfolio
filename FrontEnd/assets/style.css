@@ -246,6 +246,7 @@ footer nav ul {
 /* PAGE LOGIN*/
 
 
+
 .loginbody {
 	width: 100%;
 
@@ -269,14 +270,15 @@ footer nav ul {
 
 .loginform {
     display: flex;
+	flex-wrap: wrap;
     flex-direction: column;
-    align-items: center; /* Centre les éléments horizontalement */
+    align-items: center; 
     width: 100%;
 }
 
 .loginform label {
     margin-bottom: 10px;
-    width: 100%; /* Assurez-vous que les éléments prennent toute la largeur du formulaire */
+    width: 100%; 
 }
 
 .loginmail,.loginpassword  {
@@ -292,6 +294,7 @@ footer nav ul {
 	display: flex;
 	flex-direction: column;
 	margin-top: 37px;
+	flex-wrap: wrap;
 	
 	
 }
@@ -302,4 +305,21 @@ footer nav ul {
 	border-color: transparent;
 	border-radius: 60px;
 
+}
+
+.missingpassword {
+	display: flex;
+	justify-content: center;
+}
+
+.missingpassword a {
+	color: black;
+}
+
+.bodylogin {
+	width: 100%;
+}
+
+.footerlogin {
+	height: 60px;
 }
