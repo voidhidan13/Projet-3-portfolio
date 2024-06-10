@@ -11,8 +11,8 @@ fetch("http://localhost:5678/api/works")
 
         // Fonction pour créer les articles des projets
         const creerArticlesProjets = (projets) => {
-            const sectionGallery = document.querySelector(".gallery");
-            sectionGallery.innerHTML = '';
+            const GalleryPortfolio = document.querySelector(".gallery");
+            GalleryPortfolio.innerHTML = '';
 
             projets.forEach(projet => {
                 const articleProjet = document.createElement("article");
@@ -25,7 +25,7 @@ fetch("http://localhost:5678/api/works")
                 projetDesc.innerText = projet.title;
                 articleProjet.appendChild(projetDesc);
 
-                sectionGallery.appendChild(articleProjet); 
+                GalleryPortfolio.appendChild(articleProjet); 
             });
         };
 
