@@ -140,6 +140,7 @@ main {
 #errorMessage {
     margin-top: 10px;
     font-size: 16px;
+    color: red;
 }
 
 .missingpassword {
