@@ -22,6 +22,14 @@ html, body {
 
 }
 
+body {
+    max-width: 1140px;
+    margin: auto;
+	font-family: 'Work Sans' ;
+	font-size: 14px;
+}
+
+
 /* Page login */
 .loginbody, .loginbackground {
     height: 100%;
@@ -83,7 +91,6 @@ li:hover {
 }
 
 main {
-    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -130,6 +137,11 @@ main {
     cursor: pointer;
 }
 
+#errorMessage {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
 .missingpassword {
     display: flex;
     justify-content: center;
@@ -139,6 +151,8 @@ main {
 .missingpassword a {
     color: black;
 }
+
+
 
 .footerlogin {
     height: 60px;

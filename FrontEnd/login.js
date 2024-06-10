@@ -1,73 +1,34 @@
-const pageForm = document.querySelector("main");
+function ajoutListenerLogin() {
+    const loginform = document.querySelector(".loginform");
+    loginform.addEventListener("submit", function(event) {
+        event.preventDefault();
 
-// Sélection du bouton de connexion
-const loginBtn = document.querySelector(".login");
+        const balisemail = document.getElementById("loginemail");
+        const loginmail = balisemail.value;
+        console.log(loginmail);
 
-// Ajout d'un écouteur d'événements au bouton de connexion
-loginBtn.addEventListener("click", OuvertureForm);
+        const balisepassword = document.getElementById("password");
+        const loginpassword = balisepassword.value;
+        console.log(loginpassword);
 
-// Fonction pour vider la page et ajouter le titre "Log in" et le formulaire de connexion
-function OuvertureForm() {
-// Vider le contenu de la page
-    pageForm.innerHTML = '';
+        const errorMessage = document.getElementById("errorMessage");
 
-    // Création de la div pour le titre
-    const titleDiv = document.createElement("div");
-    titleDiv.classList.add("title-div");
+        // Vérification des informations de connexion
+        if (loginmail === "sophie.bluel@test.tld" && loginpassword === "S0phie") {
+            // Redirection vers la page d'accueil
+            window.location.href = "index.html";
 
-    // Création du titre "Log in"
-    const loginTitle = document.createElement("h2");
-    loginTitle.textContent = "Log in";
-    titleDiv.appendChild(loginTitle); // Ajouter le titre "Log in" à la div du titre
-
-    // Création de la div pour le formulaire
-    const formDiv = document.createElement("div");
-    formDiv.classList.add("form-div");
-
-    // Création du formulaire de connexion
-    const form = document.createElement("form");
-    form.setAttribute("action", "#");
-    form.setAttribute("method", "post");
-
-    // Création du champ Email
-    const labelEmail = document.createElement("label");
-    labelEmail.setAttribute("for", "loginemail");
-    labelEmail.textContent = "Email";
-    const inputEmail = document.createElement("input");
-    inputEmail.setAttribute("type", "email");
-    inputEmail.setAttribute("name", "email");
-    inputEmail.setAttribute("id", "loginemail");
-    inputEmail.setAttribute("autocomplete", "username");
-    inputEmail.setAttribute("required", "");
-    form.appendChild(labelEmail);
-    form.appendChild(inputEmail);
-
-    // Création du champ Mot de passe
-    const labelPassword = document.createElement("label");
-    labelPassword.setAttribute("for", "password");
-    labelPassword.textContent = "Mot de passe";
-    const inputPassword = document.createElement("input");
-    inputPassword.setAttribute("type", "password");
-    inputPassword.setAttribute("name", "password");
-    inputPassword.setAttribute("id", "password");
-    inputPassword.setAttribute("required", "");
-    inputPassword.setAttribute("autocomplete", "current-password");
-    form.appendChild(labelPassword);
-    form.appendChild(inputPassword);
-
-    // Création du bouton de soumission
-    const submitButton = document.createElement("input");
-    submitButton.setAttribute("type", "submit");
-    submitButton.setAttribute("value", "Se connecter");
-    form.appendChild(submitButton);
-
-    // Ajouter le formulaire à la div du formulaire
-    formDiv.appendChild(form);
-
-    // Ajouter les div du titre et du formulaire à l'élément main
-    pageForm.appendChild(titleDiv);
-    pageForm.appendChild(formDiv);
+            // Stockage du token d'authentification (exemple)
+            localStorage.setItem("authToken", "your-auth-token-here");
+        } else {
+            // Affichage d'un message d'erreur
+            errorMessage.textContent = "Mot de passe ou email incorrect";
+        }
+    });
 }
+
+// Appel de la fonction pour ajouter le listener
+ajoutListenerLogin();
 
 
 
