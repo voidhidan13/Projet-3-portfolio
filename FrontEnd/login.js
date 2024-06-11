@@ -18,7 +18,7 @@ function ajoutListenerLogin() {
             // Redirection vers la page d'accueil
             window.location.href = "index.html";
 
-            // Stockage du token d'authentification (exemple)
+            // Stockage du token d'authentification 
             localStorage.setItem("authToken", "your-auth-token-here");
         } else {
             // Affichage d'un message d'erreur
@@ -27,8 +27,9 @@ function ajoutListenerLogin() {
     });
 }
 
-// Appel de la fonction pour ajouter le listener
+
 ajoutListenerLogin();
+
 
 
 

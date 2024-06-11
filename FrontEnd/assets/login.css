@@ -1,4 +1,4 @@
-/* Reset CSS */
+* Reset CSS */
 * {
     margin: 0;
     padding: 0;
@@ -23,10 +23,10 @@ html, body {
 }
 
 body {
-    max-width: 1140px;
     margin: auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
+    
 }
 
 

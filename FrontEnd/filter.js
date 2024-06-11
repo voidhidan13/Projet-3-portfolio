@@ -29,7 +29,6 @@ fetch("http://localhost:5678/api/works")
             });
         };
 
-        // Créer les articles des projets par défaut
         creerArticlesProjets(projets);
 
         // Ajout des écouteurs d'événements pour les filtres
