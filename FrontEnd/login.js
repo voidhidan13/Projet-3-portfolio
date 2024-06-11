@@ -40,12 +40,3 @@ function ajoutListenerLogin() {
 }
 
 ajoutListenerLogin();
-
-        // CREER PAGE ADMINISTRATION EN DEMANDANT SI LE TOKEN EST BIEN BON
-        // MODIFIER HTML VIA DOM
-
-
-
-
-
-
