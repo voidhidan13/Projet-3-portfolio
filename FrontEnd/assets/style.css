@@ -342,3 +342,25 @@ footer nav ul {
 .footerlogin {
 	height: 60px;
 }
+
+#welcome-message {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    width: 100%;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#welcome-message p {
+    margin: 0;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 14px;
+}
+
+#welcome-message i {
+	color: white; 
+	padding:5px;
+}
