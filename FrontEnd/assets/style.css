@@ -364,3 +364,25 @@ footer nav ul {
 	color: white; 
 	padding:5px;
 }
+
+.admin-link {
+    font-size: 16px;
+    text-decoration: none;
+    color: black; /* Couleur du texte */
+    margin-left: 10px; /* Marge à gauche pour l'espace */
+}
+
+.admin-link i {
+    color: black; /* Couleur de l'icône */
+    margin-right: 5px; /* Marge à droite de l'icône */
+}
+
+.admin-mode {
+    margin-bottom: 20px; /* Ajoutez la marge en dessous du titre */
+}
+
+
+/* Style pour la classe "admin-mode" */
+#portfolio h2.admin-mode {
+    margin-bottom: 90px; /* Valeur ajustée dynamiquement par JavaScript */
+}
