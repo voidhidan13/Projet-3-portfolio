@@ -366,10 +366,16 @@ footer nav ul {
 }
 
 .admin-link {
-    font-size: 16px;
+    font-size: 14px;
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 400;
     text-decoration: none;
     color: black; /* Couleur du texte */
     margin-left: 10px; /* Marge à gauche pour l'espace */
+	position: relative;
+	top: -4px;
+	left: 5px;
+	
 }
 
 .admin-link i {
@@ -385,4 +391,66 @@ footer nav ul {
 /* Style pour la classe "admin-mode" */
 #portfolio h2.admin-mode {
     margin-bottom: 90px; /* Valeur ajustée dynamiquement par JavaScript */
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s;
+}
+
+.modal[aria-hidden="false"] {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-wrapper {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 630px; /* Largeur fixe de 630px */
+    height: 688px; /* Hauteur fixe de 688px */
+    text-align: center; /* Centrer le texte et les éléments à l'intérieur de la modale */
+}
+
+.modal-wrapper h2 {
+   font-family: 'Work Sans',sans-serif;	
+   color: black;
+   font-weight: 400;
+   margin-top: 10px;
+}
+
+.addphoto {
+	background-color:#1D6154;
+	color: white;
+	border-radius: 60px;
+	border-color: #1D6154;
+	padding-right: 50px;
+	padding-left: 50px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-family: 'Syne',sans-serif;
+	font-weight: 400;
+	text-align: center;
+	
+}
+
+a {
+    text-decoration: none; /* Assurez-vous que la décoration de texte est correcte */
+    outline: none; /* Supprime l'outline (mais assurez-vous de gérer l'accessibilité) */
+}
+
+/* Pour les boutons */
+button {
+    border: none; /* Supprime la bordure */
+    outline: none; /* Supprime l'outline (mais assurez-vous de gérer l'accessibilité) */
 }

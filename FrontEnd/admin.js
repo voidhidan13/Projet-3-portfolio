@@ -15,10 +15,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const projectsTitle = document.querySelector('#portfolio h2');
     console.log('Projects title element:', projectsTitle);
 
+    // Sélectionner la modale et son wrapper
+    const modal = document.getElementById('modal');
+    const modalWrapper = document.querySelector('.modal-wrapper');
+
     // Si le token est présent, mettre à jour le texte du lien et gérer le mode admin
     if (token) {
         // Mettre à jour le texte du lien de connexion
-        loginText.innerHTML = '<a href="#">logout</a>';
+        loginText.innerHTML = '<a href="#" id="logout-link">logout</a>';
         console.log('Login text updated');
 
         // Masquer la barre de filtres si elle existe
@@ -30,8 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Créer le lien "Modifier" avec une icône FontAwesome
         const editLink = document.createElement('a');
         editLink.className = 'admin-link';
-        editLink.href = '#'; // Placeholder href
-        editLink.innerHTML = '<i class="fas fa-pen-to-square"></i> Modifier';
+        editLink.href = '#';
+        editLink.innerHTML = '<i class="fa-regular fa-pen-to-square"></i> Modifier';
         console.log('Edit link created:', editLink);
 
         // Insérer le lien à la fin du texte du titre "Mes Projets"
@@ -43,5 +47,20 @@ document.addEventListener('DOMContentLoaded', function() {
         // Ajouter une classe pour augmenter la marge inférieure du titre "Mes Projets"
         projectsTitle.classList.add('admin-mode');
         console.log('Admin mode class added to projects title');
+
+        // Écouter les clics sur le lien "Modifier" pour afficher la modale
+        editLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            modal.setAttribute('aria-hidden', 'false');
+            console.log('Modal opened');
+        });
     }
+
+    // Écouter les clics en dehors de la modale pour la fermer
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.setAttribute('aria-hidden', 'true');
+            console.log('Modal closed');
+        }
+    });
 });
