@@ -414,34 +414,70 @@ footer nav ul {
 }
 
 .modal-wrapper {
+    display: flex;
+	align-items: center;
+	flex-direction: column;
     background: white;
     padding: 20px;
     border-radius: 8px;
-    width: 630px; /* Largeur fixe de 630px */
-    height: 688px; /* Hauteur fixe de 688px */
-    text-align: center; /* Centrer le texte et les éléments à l'intérieur de la modale */
+    width: 630px; 
+    height: 688px; 
+	gap : 60px
+    
 }
 
 .modal-wrapper h2 {
-   font-family: 'Work Sans',sans-serif;	
-   color: black;
-   font-weight: 400;
-   margin-top: 10px;
+    font-family: 'Work Sans', sans-serif;
+    color: black;
+    font-weight: 400;
+	font-size: 26px;
+	margin-top: 30px;
+}
+
+#modal-gallery {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 colonnes égales */
+    gap: 10px; /* Espacement entre les images */
+    justify-items: center; /* Centrer les images horizontalement dans chaque cellule */
+    align-items: center; /* Centrer les images verticalement dans chaque cellule */
+    max-width: 550px; /* Largeur maximale pour 5 images par ligne */
+}
+
+#modal-gallery img {
+    width: 76.86px; /* Largeur spécifiée depuis Figma */
+    height: 102.57px; /* Hauteur spécifiée depuis Figma */
+    object-fit: cover; /* Ajuste la taille de l'image sans déformer */
+
+}
+
+hr {
+    margin-top: 20px; /* Espacement par rapport au contenu précédent */
+    width: 68%; /* Largeur de la ligne horizontale sur toute la largeur */
+    border: none; /* Pas de bordure */
+    border-top: 1px solid #ccc; /* Bordure supérieure solide */
 }
 
 .addphoto {
-	background-color:#1D6154;
-	color: white;
-	border-radius: 60px;
-	border-color: #1D6154;
-	padding-right: 50px;
-	padding-left: 50px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	font-family: 'Syne',sans-serif;
-	font-weight: 400;
-	text-align: center;
-	
+    background-color: #1D6154;
+    color: white;
+    border-radius: 60px;
+    border-color: #1D6154;
+    padding: 10px 60px; 
+    font-family: 'Syne', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer; /* Curseur pointeur au survol */
+}
+
+.addphoto:hover {
+    background-color: #165040; /* Couleur de fond au survol */
+}
+
+.work-item img {
+    width: 76.86px; /* Largeur spécifiée depuis Figma */
+    height: 102.57px; /* Hauteur spécifiée depuis Figma */
+    object-fit: cover; /* Ajuste la taille de l'image sans déformer */
+    margin-bottom: 10px; /* Espacement sous chaque image */
 }
 
 a {
