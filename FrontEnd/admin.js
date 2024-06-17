@@ -54,6 +54,20 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.setAttribute('aria-hidden', 'false');
             console.log('Modal opened');
         });
+
+        // Écouter le clic sur le lien "logout"
+        const logoutLink = document.getElementById('logout-link');
+        if (logoutLink) {
+            logoutLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                // Supprimer le token du stockage local
+                localStorage.removeItem('token');
+                // Rediriger vers la page d'accueil
+                window.location.href = 'index.html';
+            });
+        } else {
+            console.error('Élément #logout-link non trouvé dans le DOM.');
+        }
     }
 
     // Écouter les clics en dehors de la modale pour la fermer
