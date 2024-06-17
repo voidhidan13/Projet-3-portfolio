@@ -14,7 +14,7 @@ function displayWorksInModal(works) {
     // Effacer le contenu précédent de la galerie
     modalGallery.innerHTML = '';
 
-    // Parcourir chaque travail et créer un élément img dans la galerie
+    // Parcourir chaque travail et créer un élément work-item dans la galerie
     works.forEach(work => {
         const workItem = document.createElement('div');
         workItem.classList.add('work-item');
@@ -26,7 +26,8 @@ function displayWorksInModal(works) {
         // Créer l'icône de suppression
         const deleteIcon = document.createElement('i');
         deleteIcon.classList.add('fa-solid', 'fa-trash-can', 'delete-icon');
-        deleteIcon.addEventListener('click', async () => {
+        deleteIcon.addEventListener('click', async (event) => {
+            event.stopPropagation(); // Empêche la propagation de l'événement au conteneur modal
             await deleteWork(work.id, workItem);
         });
 
@@ -34,7 +35,7 @@ function displayWorksInModal(works) {
         workItem.appendChild(imgElement);
         workItem.appendChild(deleteIcon);
 
-        // Ajouter l'élément de travail à la galerie
+        // Ajouter l'élément work-item à la galerie
         modalGallery.appendChild(workItem);
     });
 }
@@ -66,10 +67,17 @@ document.addEventListener('DOMContentLoaded', function() {
         fetchAndDisplayWorks();
     });
 
-    // Écouter les clics en dehors de la modale pour la fermer
-    window.addEventListener('click', function(event) {
+    // Écouter le clic sur l'icône de fermeture pour fermer la modale
+    const closeModalIcon = document.getElementById('close-modal');
+    closeModalIcon.addEventListener('click', function(event) {
+        event.stopPropagation(); // Empêcher la propagation de l'événement au conteneur modal
+        modal.setAttribute('aria-hidden', 'true');
+    });
+
+    // Éviter la fermeture de la modale lors du clic en dehors de celle-ci
+    modal.addEventListener('click', function(event) {
         if (event.target === modal) {
-            modal.setAttribute('aria-hidden', 'true');
+            event.stopPropagation(); // Empêcher la propagation de l'événement au conteneur modal
         }
     });
 });

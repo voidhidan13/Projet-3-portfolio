@@ -422,8 +422,16 @@ footer nav ul {
     border-radius: 8px;
     width: 630px; 
     height: 688px; 
-	gap : 60px
+	gap : 40px
     
+}
+
+#close-modal {
+    cursor: pointer;
+	align-self: flex-end;
+	margin-right: 10px;
+	margin-top: 10px;
+	font-size: 20px;
 }
 
 .modal-wrapper h2 {
@@ -431,7 +439,7 @@ footer nav ul {
     color: black;
     font-weight: 400;
 	font-size: 26px;
-	margin-top: 30px;
+	
 }
 
 #modal-gallery {
@@ -490,15 +498,17 @@ hr {
 
 .delete-icon {
     position: absolute;
-    top: 7px;
-    right: 5px;
-    color: white;
-    cursor: pointer;
-    background: black;
-    border-radius: 2px;
-    padding: 5px 6px;
-    font-size: 14px; 
+    top: 5px; 
+    right: 5px; 
+    font-size: 10px; 
+    background-color: black;
+    color: white; 
+    border-radius: 2px; 
+    padding: 4px; 
+    cursor: pointer; 
+   
 }
+
 
 a {
     text-decoration: none; /* Assurez-vous que la décoration de texte est correcte */
