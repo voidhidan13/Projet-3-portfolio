@@ -74,10 +74,4 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.setAttribute('aria-hidden', 'true');
     });
 
-    // Éviter la fermeture de la modale lors du clic en dehors de celle-ci
-    modal.addEventListener('click', function(event) {
-        if (event.target === modal) {
-            event.stopPropagation(); // Empêcher la propagation de l'événement au conteneur modal
-        }
-    });
 });
