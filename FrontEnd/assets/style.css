@@ -437,10 +437,11 @@ footer nav ul {
 #modal-gallery {
     display: grid;
     grid-template-columns: repeat(5, 1fr); /* 5 colonnes égales */
-    gap: 10px; /* Espacement entre les images */
+    gap: 20px; /* Espacement entre les images */
     justify-items: center; /* Centrer les images horizontalement dans chaque cellule */
     align-items: center; /* Centrer les images verticalement dans chaque cellule */
     max-width: 550px; /* Largeur maximale pour 5 images par ligne */
+
 }
 
 #modal-gallery img {
@@ -473,11 +474,30 @@ hr {
     background-color: #165040; /* Couleur de fond au survol */
 }
 
+
+.work-item {
+    position: relative; /* Pour positionner l'icône de suppression correctement */
+    width: 76.86px;
+    height: 102.57px;
+    margin-bottom: 10px;
+}
+
 .work-item img {
-    width: 76.86px; /* Largeur spécifiée depuis Figma */
-    height: 102.57px; /* Hauteur spécifiée depuis Figma */
+    width: 100%;
+    height: 100%;
     object-fit: cover; /* Ajuste la taille de l'image sans déformer */
-    margin-bottom: 10px; /* Espacement sous chaque image */
+}
+
+.delete-icon {
+    position: absolute;
+    top: 7px;
+    right: 5px;
+    color: white;
+    cursor: pointer;
+    background: black;
+    border-radius: 2px;
+    padding: 5px 6px;
+    font-size: 14px; 
 }
 
 a {

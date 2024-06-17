@@ -16,17 +16,29 @@ function displayWorksInModal(works) {
 
     // Parcourir chaque travail et créer un élément img dans la galerie
     works.forEach(work => {
+        const workItem = document.createElement('div');
+        workItem.classList.add('work-item');
+
         const imgElement = document.createElement('img');
         imgElement.src = work.imageUrl;
         imgElement.alt = work.title; // Utilisez un texte alternatif approprié pour l'accessibilité
 
-        // Ajouter la classe pour le style spécifique des images si nécessaire
-        imgElement.classList.add('work-item');
+        // Créer l'icône de suppression
+        const deleteIcon = document.createElement('i');
+        deleteIcon.classList.add('fa-solid', 'fa-trash-can', 'delete-icon');
+        deleteIcon.addEventListener('click', async () => {
+            await deleteWork(work.id, workItem);
+        });
 
-        // Ajouter l'image à la galerie
-        modalGallery.appendChild(imgElement);
+        // Ajouter l'image et l'icône de suppression au conteneur
+        workItem.appendChild(imgElement);
+        workItem.appendChild(deleteIcon);
+
+        // Ajouter l'élément de travail à la galerie
+        modalGallery.appendChild(workItem);
     });
 }
+
 async function deleteWork(workId, workItem) {
     try {
         const response = await fetch(`http://localhost:5678/api/works/${workId}`, {
