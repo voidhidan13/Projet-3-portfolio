@@ -15,6 +15,7 @@
 	<script src="login.js" defer></script>
 	<script src="admin.js" defer></script>
 	<script src="modal.js" defer></script>
+	<script src="modal2.js" defer></script>
 </head>
 <body>
 <header>
@@ -55,12 +56,39 @@
 	</section>
 
 	<aside id="modal" class="modal" aria-hidden="true" role="dialog"> 
-		<div class="modal-wrapper"> 
+		<div class="modal-wrapper">
 			<i class="fa-solid fa-xmark" id="close-modal"></i>
 			<h2>Galerie photo</h2>
 			<div id="modal-gallery"></div> 
 			<hr>
 			<button class="addphoto" id="addphoto">Ajouter une photo</button>
+	
+			<!-- Contenu dynamique pour l'ajout de photo -->
+			<div id="modal-add-photo" class="hidden">
+				<h3>Ajout Photo</h3>
+				<form id="add-photo-form">
+					<div id="formPhoto">
+						<i class="fa-regular fa-image"></i>
+						<label for="photo-file" class="buttonAddPhoto">
+							+ Ajouter photo    
+							<input type="file" class="js-photo" id="photo-file" accept="image/jpeg, image/png" size="4194304">
+						</label>
+						<p class="p-photo">jpg, png : 4mo max</p>
+					</div>
+	
+					<div id="formTitle">
+						<label for="photo-title">Titre de la photo:</label>
+						<input type="text" id="photo-title" name="title" required>
+					</div>
+	
+					<div class="formCategories">
+						<label for="categories">Catégorie</label><br>
+						<select id="categories"></select>
+					</div>
+	
+					<button type="submit">Ajouter</button>
+				</form>
+			</div>
 		</div>
 	</aside>
 	

@@ -520,3 +520,7 @@ button {
     border: none; /* Supprime la bordure */
     outline: none; /* Supprime l'outline (mais assurez-vous de gérer l'accessibilité) */
 }
+
+.hidden {
+    display: none;
+}
