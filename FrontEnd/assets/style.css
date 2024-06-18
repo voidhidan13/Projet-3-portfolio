@@ -415,31 +415,29 @@ footer nav ul {
 
 .modal-wrapper {
     display: flex;
-	align-items: center;
-	flex-direction: column;
+    align-items: center;
+    flex-direction: column;
     background: white;
     padding: 20px;
     border-radius: 8px;
     width: 630px; 
     height: 688px; 
-	gap : 40px
-    
+    gap: 40px;
 }
 
 #close-modal {
     cursor: pointer;
-	align-self: flex-end;
-	margin-right: 10px;
-	margin-top: 10px;
-	font-size: 20px;
+    align-self: flex-end;
+    margin-right: 10px;
+    margin-top: 10px;
+    font-size: 20px;
 }
 
 .modal-wrapper h2 {
     font-family: 'Work Sans', sans-serif;
     color: black;
     font-weight: 400;
-	font-size: 26px;
-	
+    font-size: 26px;
 }
 
 #modal-gallery {
@@ -449,14 +447,12 @@ footer nav ul {
     justify-items: center; /* Centrer les images horizontalement dans chaque cellule */
     align-items: center; /* Centrer les images verticalement dans chaque cellule */
     max-width: 550px; /* Largeur maximale pour 5 images par ligne */
-
 }
 
 #modal-gallery img {
     width: 76.86px; /* Largeur spécifiée depuis Figma */
     height: 102.57px; /* Hauteur spécifiée depuis Figma */
     object-fit: cover; /* Ajuste la taille de l'image sans déformer */
-
 }
 
 hr {
@@ -482,7 +478,6 @@ hr {
     background-color: #165040; /* Couleur de fond au survol */
 }
 
-
 .work-item {
     position: relative; /* Pour positionner l'icône de suppression correctement */
     width: 76.86px;
@@ -506,9 +501,7 @@ hr {
     border-radius: 2px; 
     padding: 4px; 
     cursor: pointer; 
-   
 }
-
 
 a {
     text-decoration: none; /* Assurez-vous que la décoration de texte est correcte */
@@ -521,6 +514,62 @@ button {
     outline: none; /* Supprime l'outline (mais assurez-vous de gérer l'accessibilité) */
 }
 
-.hidden {
-    display: none;
+/* Styles spécifiques pour la modale d'ajout de photo */
+#modal-add-photo.hidden {
+    display: none; /* Cacher par défaut */
+}
+
+#modal-add-photo .modal-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 630px; /* Ajustez la largeur selon vos besoins */
+    gap: 20px;
+}
+
+#modal-add-photo h3 {
+    font-family: 'Work Sans', sans-serif;
+    color: black;
+    font-weight: 400;
+    font-size: 26px;
+    margin-bottom: 20px; /* Ajustez l'espacement en bas si nécessaire */
+}
+
+#add-photo-form {
+    width: 100%;
+}
+
+#add-photo-form label {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 18px;
+    color: black;
+    margin-bottom: 8px;
+}
+
+#add-photo-form input,
+#add-photo-form select {
+    width: calc(100% - 20px); /* Ajustez la largeur en tenant compte des marges */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px; /* Espacement entre les éléments du formulaire */
+}
+
+#add-photo-form button[type="submit"] {
+    background-color: #1D6154;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: 'Syne', sans-serif;
+    font-weight: 400;
+}
+
+#add-photo-form button[type="submit"]:hover {
+    background-color: #165040;
 }
