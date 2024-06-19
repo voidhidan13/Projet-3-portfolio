@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeModalIcon = document.getElementById('close-modal');
     const modalTitle = document.querySelector('#modal h2');
     const addPhotoBtn = document.querySelector('.addphoto');
+    const modalHr = document.querySelector('#modal hr'); // Sélectionne l'élément <hr>
 
     // Écouter le clic sur le bouton "Ajouter une photo"
     addPhotoButton.addEventListener('click', function(event) {
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         modalTitle.style.display = 'none';
         addPhotoBtn.style.display = 'none';
         modalGallery.style.display = 'none';
+        modalHr.style.display = 'none'; // Masquer l'élément <hr>
         // Afficher la modal d'ajout de photo
         modalAddPhoto.classList.remove('hidden');
     });
@@ -24,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
         modalTitle.style.display = 'block';
         addPhotoBtn.style.display = 'block';
         modalGallery.style.display = 'grid';
+        modalHr.style.display = 'block'; // Réafficher l'élément <hr>
         // Cacher la modal d'ajout de photo
         modalAddPhoto.classList.add('hidden');
     });
@@ -35,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
             modalTitle.style.display = 'block';
             addPhotoBtn.style.display = 'block';
             modalGallery.style.display = 'grid';
+            modalHr.style.display = 'block'; // Réafficher l'élément <hr>
             // Cacher la modal d'ajout de photo
             modalAddPhoto.classList.add('hidden');
         }
