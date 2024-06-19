@@ -426,7 +426,7 @@ footer nav ul {
     box-sizing: border-box; /* Assurez-vous que le padding est pris en compte dans la largeur totale */
     max-height: 90vh; /* Pour s'assurer que la modale ne dépasse pas la hauteur de l'écran */
     overflow-y: auto; /* Ajouter un défilement si le contenu dépasse la hauteur de la modale */
-    height: 670px;
+    height: 690px;
 }
 
 #close-modal {
@@ -442,12 +442,15 @@ footer nav ul {
     color: black;
     font-weight: 400;
     font-size: 26px;
+	margin-bottom: 36px;
+	margin-top: 15px;
 }
 
 #modal-gallery {
     display: grid;
     grid-template-columns: repeat(5, 1fr); /* 5 colonnes égales */
-    gap: 20px; /* Espacement entre les images */
+	gap: 10px;
+	row-gap: 20px;
     justify-items: center; /* Centrer les images horizontalement dans chaque cellule */
     align-items: center; /* Centrer les images verticalement dans chaque cellule */
     max-width: 550px; /* Largeur maximale pour 5 images par ligne */
@@ -534,7 +537,8 @@ button {
     width: 630px; /* Ajustez la largeur selon vos besoins */
     box-sizing: border-box; /* Assurez-vous que le padding est pris en compte dans la largeur totale */
     max-height: 90vh; /* Pour s'assurer que la modale ne dépasse pas la hauteur de l'écran */
-    overflow-y: auto; /* Ajouter un défilement si le contenu dépasse la hauteur de la modale */
+    overflow-y: auto; 
+	
 }
 
 #modal-add-photo {
@@ -547,12 +551,12 @@ button {
     color: black;
     font-weight: 400;
     font-size: 26px;
-    margin-bottom: 36px; 
     text-align: center;
 }
 
 #add-photo-form {
     width: 100%;
+	margin-top: 20px;
 }
 
 #add-photo-form label {
@@ -648,3 +652,9 @@ button {
 	margin-bottom: 30px;
 }
 
+#back-modal {
+	position: relative;
+	top : -45px;
+	left: -65px;
+	font-size: 18px;
+} 

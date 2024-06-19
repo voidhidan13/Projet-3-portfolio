@@ -3,43 +3,48 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalGallery = document.getElementById('modal-gallery');
     const modalAddPhoto = document.getElementById('modal-add-photo');
     const closeModalIcon = document.getElementById('close-modal');
+    const backButton = document.getElementById('back-modal'); // Nouvelle variable pour l'icône de retour
     const modalTitle = document.querySelector('#modal h2');
     const addPhotoBtn = document.querySelector('.addphoto');
-    const modalHr = document.querySelector('#modal hr'); // Sélectionne l'élément <hr>
+    const modalHr = document.querySelector('#modal hr');
 
-    // Écouter le clic sur le bouton "Ajouter une photo"
+    // Écouteur de clic sur le bouton "Ajouter une photo"
     addPhotoButton.addEventListener('click', function(event) {
         event.preventDefault();
-        // Masquer les éléments de la galerie
         modalTitle.style.display = 'none';
         addPhotoBtn.style.display = 'none';
         modalGallery.style.display = 'none';
-        modalHr.style.display = 'none'; // Masquer l'élément <hr>
-        // Afficher la modal d'ajout de photo
+        modalHr.style.display = 'none';
         modalAddPhoto.classList.remove('hidden');
     });
 
-    // Écouter le clic sur l'icône de fermeture pour fermer la modal d'ajout de photo
+    // Écouteur de clic sur l'icône de fermeture pour fermer la modale d'ajout de photo
     closeModalIcon.addEventListener('click', function(event) {
         event.stopPropagation();
-        // Réafficher les éléments de la galerie
         modalTitle.style.display = 'block';
         addPhotoBtn.style.display = 'block';
         modalGallery.style.display = 'grid';
-        modalHr.style.display = 'block'; // Réafficher l'élément <hr>
-        // Cacher la modal d'ajout de photo
+        modalHr.style.display = 'block';
         modalAddPhoto.classList.add('hidden');
     });
 
-    // Fermer la modal d'ajout de photo en cliquant à l'extérieur
+    // Écouteur de clic sur l'icône de retour pour revenir à la modale principale
+    backButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        modalAddPhoto.classList.add('hidden');
+        modalTitle.style.display = 'block';
+        addPhotoBtn.style.display = 'block';
+        modalGallery.style.display = 'grid';
+        modalHr.style.display = 'block';
+    });
+
+    // Écouteur de clic sur la fenêtre pour fermer la modale d'ajout de photo
     window.addEventListener('click', function(event) {
         if (event.target === modalAddPhoto) {
-            // Réafficher les éléments de la galerie
             modalTitle.style.display = 'block';
             addPhotoBtn.style.display = 'block';
             modalGallery.style.display = 'grid';
-            modalHr.style.display = 'block'; // Réafficher l'élément <hr>
-            // Cacher la modal d'ajout de photo
+            modalHr.style.display = 'block';
             modalAddPhoto.classList.add('hidden');
         }
     });
