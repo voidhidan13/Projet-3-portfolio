@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
         modalAddPhoto.classList.remove('hidden');
     }
     
-    // Fonction pour fermer la modale d'ajout de photo
+    // Fonction pour fermer la modale d'ajout de photosd
     function closeAddPhotoModal() {
         modalTitle.style.display = 'block';
         addPhotoBtn.style.display = 'block';
