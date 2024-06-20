@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const photoFileInput = document.getElementById('photo-file');
     const previewImageElement = document.getElementById('preview-image');
     const token = localStorage.getItem('token');
+    
 
     // Vérifie si le token d'authentification est présent
     if (!token) {
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Gérer l'absence du token, par exemple, rediriger vers la page de connexion
         return;
     }
-
+    
     // Fonction pour ouvrir la modale d'ajout de photo
     function openAddPhotoModal() {
         modalTitle.style.display = 'none';
@@ -29,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         modalHr.style.display = 'none';
         modalAddPhoto.classList.remove('hidden');
     }
-
+    
     // Fonction pour fermer la modale d'ajout de photo
     function closeAddPhotoModal() {
         modalTitle.style.display = 'block';
@@ -38,33 +39,33 @@ document.addEventListener('DOMContentLoaded', function() {
         modalHr.style.display = 'block';
         modalAddPhoto.classList.add('hidden');
     }
-
+    
     // Écouteur pour la soumission du formulaire
     photoForm.addEventListener('submit', function(event) {
         event.preventDefault();
-
+    
         // Récupérer les valeurs des champs du formulaire
         const title = photoTitleInput.value.trim(); // Trim pour enlever les espaces vides au début et à la fin
         const category = categoryInput.value.trim();
-
+    
         // Vérifier que le titre n'est pas vide et que la catégorie est valide
         if (!title) {
             alert('Veuillez saisir un titre pour la photo.');
             return;
         }
-
+    
         const validCategories = ['Objets', 'Appartements', 'Hotels & restaurants'];
         if (!validCategories.includes(category)) {
             alert('Veuillez saisir une catégorie valide parmi Objets, Appartements ou Hotels & restaurants.');
             return;
         }
-
+    
         // Création d'un objet FormData pour encapsuler les données du formulaire
         const formData = new FormData();
-        formData.append('image', photoFileInput.files[0]); // Récupérer le premier fichier sélectionné
+        formData.append('image', photoFileInput.files[0]); 
         formData.append('title', title);
         formData.append('category', category);
-
+    
         // Envoi de la requête fetch avec FormData et le token d'authentification
         fetch('http://localhost:5678/api/works', {
             method: 'POST',
@@ -95,25 +96,25 @@ document.addEventListener('DOMContentLoaded', function() {
             previewImageElement.src = '';
         });
     });
-
+    
     // Gestion de l'événement clic sur le bouton "Ajouter une photo"
     addPhotoButton.addEventListener('click', function(event) {
         event.preventDefault();
         openAddPhotoModal();
     });
-
+    
     // Gestion de l'événement clic sur l'icône de fermeture de la modale
     closeModalIcon.addEventListener('click', function(event) {
         event.stopPropagation();
         closeAddPhotoModal();
     });
-
+    
     // Gestion de l'événement clic sur le bouton retour dans la modale
     backButton.addEventListener('click', function(event) {
         event.preventDefault();
         closeAddPhotoModal();
     });
-
+    
     // Fonction pour afficher l'aperçu de l'image sélectionnée
     photoFileInput.addEventListener('change', function() {
         const file = photoFileInput.files[0];
@@ -129,4 +130,4 @@ document.addEventListener('DOMContentLoaded', function() {
             previewImageElement.style.display = 'none';
         }
     });
-});
+    });
