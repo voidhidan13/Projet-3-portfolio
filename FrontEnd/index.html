@@ -12,9 +12,9 @@
 	<script src="https://kit.fontawesome.com/02d01bad4d.js" crossorigin="anonymous"></script>
 
 	<script src="filter.js" defer></script>
-	<script src="login.js" defer></script>
 	<script src="admin.js" defer></script>
 	<script src="modal.js" defer></script>
+	<script src="modal2.js" defer></script>
 </head>
 <body>
 <header>
@@ -55,12 +55,39 @@
 	</section>
 
 	<aside id="modal" class="modal" aria-hidden="true" role="dialog"> 
-		<div class="modal-wrapper"> 
+		<div class="modal-wrapper">
 			<i class="fa-solid fa-xmark" id="close-modal"></i>
 			<h2>Galerie photo</h2>
 			<div id="modal-gallery"></div> 
 			<hr>
 			<button class="addphoto" id="addphoto">Ajouter une photo</button>
+	
+			<div id="modal-add-photo" class="hidden">
+				<i class="fa-solid fa-arrow-left" id="back-modal"></i>
+				<h3>Ajout photo</h3>
+				<form id="add-photo-form">
+					<div id="formPhoto">
+						<img id="preview-image" src="" alt="Aperçu de l'image"> <!-- Image pour l'aperçu -->
+						<label for="photo-file" class="buttonAddPhoto">
+							+ Ajouter photo    
+							<input type="file" class="js-photo" id="photo-file" accept="image/jpeg, image/png" size="4194304">
+						</label>
+						<p class="p-photo">jpg, png : 4mo max</p>
+					</div>
+	
+					<div id="formTitle">
+						<label for="photo-title">Titre</label>
+						<input type="text" id="photo-title" name="title" required>
+					</div>
+	
+					<div class="formCategories">
+						<label for="categories">Catégorie</label><br>
+						<input type= "text" id="photo-categorie" name="Catégorie" required>
+					</div>
+	                <hr class="addhr">
+					<button type="submit" class="buttonadd">Valider</button>
+				</form>
+			</div>
 		</div>
 	</aside>
 	

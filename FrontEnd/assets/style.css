@@ -393,6 +393,7 @@ footer nav ul {
     margin-bottom: 90px; /* Valeur ajustée dynamiquement par JavaScript */
 }
 
+/* Styles communs pour toutes les modales */
 .modal {
     position: fixed;
     top: 0;
@@ -415,48 +416,50 @@ footer nav ul {
 
 .modal-wrapper {
     display: flex;
-	align-items: center;
-	flex-direction: column;
+    align-items: center;
+    flex-direction: column;
     background: white;
     padding: 20px;
     border-radius: 8px;
     width: 630px; 
-    height: 688px; 
-	gap : 40px
-    
+    gap: 25px;
+    box-sizing: border-box; /* Assurez-vous que le padding est pris en compte dans la largeur totale */
+    max-height: 90vh; /* Pour s'assurer que la modale ne dépasse pas la hauteur de l'écran */
+    overflow-y: auto; /* Ajouter un défilement si le contenu dépasse la hauteur de la modale */
+    height: 690px;
 }
 
 #close-modal {
     cursor: pointer;
-	align-self: flex-end;
-	margin-right: 10px;
-	margin-top: 10px;
-	font-size: 20px;
+    align-self: flex-end;
+    margin-right: 10px;
+    margin-top: 10px;
+    font-size: 20px;
 }
 
 .modal-wrapper h2 {
     font-family: 'Work Sans', sans-serif;
     color: black;
     font-weight: 400;
-	font-size: 26px;
-	
+    font-size: 26px;
+	margin-bottom: 36px;
+	margin-top: 15px;
 }
 
 #modal-gallery {
     display: grid;
     grid-template-columns: repeat(5, 1fr); /* 5 colonnes égales */
-    gap: 20px; /* Espacement entre les images */
+	gap: 10px;
+	row-gap: 20px;
     justify-items: center; /* Centrer les images horizontalement dans chaque cellule */
     align-items: center; /* Centrer les images verticalement dans chaque cellule */
     max-width: 550px; /* Largeur maximale pour 5 images par ligne */
-
 }
 
 #modal-gallery img {
     width: 76.86px; /* Largeur spécifiée depuis Figma */
     height: 102.57px; /* Hauteur spécifiée depuis Figma */
     object-fit: cover; /* Ajuste la taille de l'image sans déformer */
-
 }
 
 hr {
@@ -482,7 +485,6 @@ hr {
     background-color: #165040; /* Couleur de fond au survol */
 }
 
-
 .work-item {
     position: relative; /* Pour positionner l'icône de suppression correctement */
     width: 76.86px;
@@ -506,9 +508,7 @@ hr {
     border-radius: 2px; 
     padding: 4px; 
     cursor: pointer; 
-   
 }
-
 
 a {
     text-decoration: none; /* Assurez-vous que la décoration de texte est correcte */
@@ -520,3 +520,155 @@ button {
     border: none; /* Supprime la bordure */
     outline: none; /* Supprime l'outline (mais assurez-vous de gérer l'accessibilité) */
 }
+
+/* Styles spécifiques pour la modale d'ajout de photo */
+#modal-add-photo.hidden {
+    display: none; /* Cacher par défaut */
+}
+
+#modal-add-photo .modal-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centrer le contenu verticalement */
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 630px; /* Ajustez la largeur selon vos besoins */
+    box-sizing: border-box; /* Assurez-vous que le padding est pris en compte dans la largeur totale */
+    max-height: 90vh; /* Pour s'assurer que la modale ne dépasse pas la hauteur de l'écran */
+    overflow-y: auto; 
+	
+}
+
+#modal-add-photo {
+    display: flex;
+    flex-direction: column;
+}
+
+#modal-add-photo h3 {
+    font-family: 'Work Sans', sans-serif;
+    color: black;
+    font-weight: 400;
+    font-size: 26px;
+    text-align: center;
+}
+
+#add-photo-form {
+    width: 100%;
+	margin-top: 20px;
+}
+
+#add-photo-form label {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 14px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+#add-photo-form input,
+#add-photo-form select {
+    width: calc(100% - 20px); /* Ajustez la largeur en tenant compte des marges */
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 25px;
+    margin-top: 10px;
+    box-shadow: 0px 4px 14px 0px #00000017;
+    height: 35px;
+    border: none;
+    outline: none;
+}
+
+#formPhoto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 420px;
+    height: 169px;
+    margin-bottom: 35px;
+    background: #E8F1F6;
+    position: relative;
+	overflow: hidden;
+}
+
+.preview-image {/* Ajuste la hauteur de l'image au maximum de la hauteur disponible */
+ 
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+
+#formPhoto i {
+    font-size: 70px;
+    color: #B9C5CC;
+}
+
+
+
+
+.buttonAddPhoto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 40px;
+    cursor: pointer;
+    position: relative;
+    color: #306685;
+    background-color: #CBD6DC;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+#formTitle label,
+.formCategories label {
+    font-size: 15px;
+    color: black;
+    font-weight: 600;
+    font-family: 'Work Sans', sans-serif;
+    margin-bottom: 25px;
+}
+
+#photo-file {
+    display: none;
+}
+
+.p-photo {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 10px;
+    color: black;
+    font-weight: 400;
+}
+
+#add-photo-form button[type="submit"] {
+    background-color: #A7A7A7;
+    color: white;
+    border: none;
+    border-radius: 60px;
+    padding: 10px 60px;
+    cursor: pointer;
+    font-family: 'Syne', sans-serif;
+    font-weight: 400;
+    display: block;
+    margin: 0 auto; /* Centre horizontalement */
+}
+
+#add-photo-form button[type="submit"]:hover {
+    background-color: #165040;
+}
+
+.addhr {
+	width: 100%;
+	margin-bottom: 30px;
+}
+
+#back-modal {
+	position: relative;
+	top : -45px;
+	left: -65px;
+	font-size: 18px;
+} 
