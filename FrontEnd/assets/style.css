@@ -589,12 +589,26 @@ button {
     margin-bottom: 35px;
     background: #E8F1F6;
     position: relative;
+	overflow: hidden;
 }
+
+.preview-image {/* Ajuste la hauteur de l'image au maximum de la hauteur disponible */
+ 
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
 
 #formPhoto i {
     font-size: 70px;
     color: #B9C5CC;
 }
+
+
+
 
 .buttonAddPhoto {
     display: flex;
