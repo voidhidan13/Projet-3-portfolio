@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         addPhotoBtn.style.display = 'block';
         modalGallery.style.display = 'grid';
         modalHr.style.display = 'block';
-        modalAddPhoto.classList.add('hidden'); 
+        modalAddPhoto.classList.add('hidden');
     }
     
     // Écouteur pour la soumission du formulaire
