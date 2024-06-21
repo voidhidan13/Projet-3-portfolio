@@ -103,4 +103,5 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.setAttribute('aria-hidden', 'true');
         }
     });
+
 });
