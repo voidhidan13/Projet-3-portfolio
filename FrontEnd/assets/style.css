@@ -50,6 +50,9 @@ table {
 :root { 
 	--main-color : #1D6154;
 }
+
+
+
 body {
 	max-width: 1140px;
 	margin:auto;
@@ -63,6 +66,11 @@ header {
 }
 section {
 	margin: 50px 0
+}
+
+.indexbackground{
+   background-color: #FFFEF8
+
 }
 
 h1{
