@@ -1,4 +1,4 @@
-* Reset CSS */
+/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
@@ -19,16 +19,13 @@ html, body {
     font-family: 'Work Sans', sans-serif;
     font-size: 14px;
     background-color: #FFFEF8;
-
 }
 
 body {
     margin: auto;
-	font-family: 'Work Sans' ;
+	font-family: 'Work Sans';
 	font-size: 14px;
-    
 }
-
 
 /* Page login */
 .loginbody, .loginbackground {
@@ -117,8 +114,22 @@ main {
     width: 379px;
     height: 51px;
     margin-bottom: 35px;
-    border-color: transparent;
+    border: none;
     box-shadow: 0px 4px 14px 0px #00000017;
+    color: #000;  /* Adjust text color */
+    background-color: #fff;  /* Adjust background color */
+    padding: 10px;  /* Add padding for better appearance */
+    font-size: 16px;
+    border-radius: 4px;  /* Optional: add border radius */
+}
+
+.loginmail, .loginpassword label {
+
+    background-color: #fff;
+}
+
+.loginmail:focus, .loginpassword:focus {
+    outline: none;  /* Remove default focus outline */
 }
 
 .loginform form {
@@ -130,11 +141,12 @@ main {
 .loginsubmit {
     width: 179px;
     height: 36px;
-    border-color: transparent;
+    border: none;
     border-radius: 60px;
     background-color: var(--main-color);
     color: white;
     cursor: pointer;
+    font-size: 16px;
 }
 
 #errorMessage {
@@ -152,8 +164,6 @@ main {
 .missingpassword a {
     color: black;
 }
-
-
 
 .footerlogin {
     height: 60px;
@@ -173,6 +183,7 @@ main {
 .footerlogin li {
     padding: 0 10px;
     font-size: 1em;
+    margin-right: 110px;
 }
 
 .footerlogin li:hover {
