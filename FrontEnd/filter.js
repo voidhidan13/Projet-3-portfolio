@@ -1,5 +1,3 @@
-
-// Récupération des données de l'API
 fetch("http://localhost:5678/api/works")
     .then(async(response) => {
         if (response.ok) return await response.json();
@@ -16,7 +14,8 @@ fetch("http://localhost:5678/api/works")
 
             projets.forEach(projet => {
                 const articleProjet = document.createElement("article");
-                
+                articleProjet.setAttribute('data-id', projet.id); // Ajout d'un attribut data-id
+
                 const projetImage = document.createElement("img");
                 projetImage.src = projet.imageUrl;
                 articleProjet.appendChild(projetImage);
@@ -48,4 +47,3 @@ fetch("http://localhost:5678/api/works")
     .catch((error) => {
         console.error(error);
     });
-

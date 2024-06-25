@@ -1,39 +1,76 @@
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('modal');
     const modalGallery = document.getElementById('modal-gallery');
-
-    // Vérifier la présence du token au chargement de la page
+    const GalleryPortfolio = document.querySelector('.gallery'); // Sélectionnez la galerie principale
+    const addPhotoButton = document.getElementById('addphoto');
+    const modalAddPhoto = document.getElementById('modal-add-photo');
+    const backButton = document.getElementById('back-modal');
+    const modalTitle = document.querySelector('#modal h2');
+    const addPhotoBtn = document.querySelector('.addphoto');
+    const modalHr = document.querySelector('#modal hr');
+    const photoForm = document.getElementById('add-photo-form');
+    const categoryInput = document.getElementById('photo-categorie');
+    const photoTitleInput = document.getElementById('photo-title');
+    const photoFileInput = document.getElementById('photo-file');
+    const previewImageElement = document.getElementById('preview-image');
     const token = localStorage.getItem('token');
+
+    // Vérifie si le token d'authentification est présent
     if (!token) {
         console.error("Le token d'authentification est manquant.");
+        // Gérer l'absence du token, par exemple, rediriger vers la page de connexion
         return;
     }
 
-    // Fonction pour récupérer et afficher les travaux dans la modale
-    async function fetchAndDisplayWorks() {
-        try {
-            const response = await fetch("http://localhost:5678/api/works", {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            });
-            if (!response.ok) {
-                throw new Error('Erreur lors de la récupération des travaux');
+    // Fonction pour récupérer et afficher les travaux
+    function fetchAndDisplayWorks() {
+        fetch('http://localhost:5678/api/works', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
             }
-            const works = await response.json();
-            displayWorksInModal(works);
-        } catch (error) {
-            console.error('Erreur lors de la récupération des travaux:', error);
-        }
+        })
+        .then(response => response.json())
+        .then(data => {
+            updateGalleryAndModal(data); // Mettre à jour la galerie principale et la modale
+        })
+        .catch(error => console.error('Erreur lors de la récupération des travaux :', error));
     }
 
-    // Fonction pour afficher les travaux dans la modale
-    function displayWorksInModal(works) {
-        modalGallery.innerHTML = ''; // Efface le contenu précédent
+    // Fonction pour mettre à jour la galerie principale et la modale
+    function updateGalleryAndModal(works) {
+        updateGallery(works); // Mettre à jour la galerie principale
+        updateModal(works); // Mettre à jour la modale d'édition des travaux
+    }
+
+    // Fonction pour mettre à jour la galerie principale
+    function updateGallery(works) {
+        GalleryPortfolio.innerHTML = ''; // Effacer la galerie existante
+
+        works.forEach(work => {
+            const articleProjet = document.createElement("article");
+            articleProjet.setAttribute('data-id', work.id); // Ajout d'un attribut data-id
+
+            const projetImage = document.createElement("img");
+            projetImage.src = work.imageUrl;
+            articleProjet.appendChild(projetImage);
+
+            const projetDesc = document.createElement("p");
+            projetDesc.innerText = work.title;
+            articleProjet.appendChild(projetDesc);
+
+            GalleryPortfolio.appendChild(articleProjet);
+        });
+    }
+
+    // Fonction pour mettre à jour la modale d'édition des travaux
+    function updateModal(works) {
+        modalGallery.innerHTML = ''; // Effacer la modale existante
 
         works.forEach(work => {
             const workItem = document.createElement('div');
             workItem.classList.add('work-item');
+            workItem.setAttribute('data-id', work.id); // Ajout d'un attribut data-id
 
             const imgElement = document.createElement('img');
             imgElement.src = work.imageUrl;
@@ -66,11 +103,20 @@ document.addEventListener('DOMContentLoaded', function() {
             if (response.ok) {
                 console.log(`Travail avec ID ${workId} supprimé avec succès`);
                 itemToRemove.remove(); // Supprimer l'élément de l'interface après suppression
+                removeWorkFromGallery(workId); // Supprimer l'élément de la galerie principale
             } else {
                 console.error('Erreur lors de la suppression du travail:', response.status, response.statusText);
             }
         } catch (error) {
             console.error('Erreur lors de la suppression du travail:', error);
+        }
+    }
+
+    // Fonction pour supprimer un travail de la galerie principale
+    function removeWorkFromGallery(workId) {
+        const workItemInGallery = GalleryPortfolio.querySelector(`article[data-id="${workId}"]`);
+        if (workItemInGallery) {
+            workItemInGallery.remove();
         }
     }
 
@@ -104,4 +150,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Initialiser la galerie avec les travaux existants
+    fetchAndDisplayWorks();
 });

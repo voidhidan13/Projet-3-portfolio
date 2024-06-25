@@ -39,6 +39,22 @@ document.addEventListener('DOMContentLoaded', function() {
         modalAddPhoto.classList.add('hidden');
     }
 
+    // Fonction pour récupérer et afficher les travaux
+    function fetchAndDisplayWorks() {
+        fetch('http://localhost:5678/api/works', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            creerArticlesProjets(data);
+            updateModalGallery(data); // Mettre à jour la galerie dans la première modale
+        })
+        .catch(error => console.error('Erreur lors de la récupération des travaux :', error));
+    }
+
     // Écouteur pour la soumission du formulaire
     photoForm.addEventListener('submit', function(event) {
         event.preventDefault();
@@ -85,6 +101,9 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             console.log('Réponse de l\'API :', data);
             alert('Votre travail est en ligne');
+            // Actualiser la galerie après l'ajout réussi
+            fetchAndDisplayWorks();
+            closeModals(); // Fermer les modales après l'ajout
         })
         .catch(error => {
             console.error('Erreur lors de l\'envoi des données :', error);
@@ -92,7 +111,6 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .finally(() => {
             // Réinitialisation de l'interface après soumission
-            closeAddPhotoModal();
             photoForm.reset();
             previewImageElement.src = '';
         });
@@ -107,13 +125,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Gestion de l'événement clic sur l'icône de fermeture de la modale
     closeModalIcon.addEventListener('click', function(event) {
         event.stopPropagation();
-        closeAddPhotoModal();
+        closeModals();
     });
 
     // Gestion de l'événement clic sur le bouton retour dans la modale
     backButton.addEventListener('click', function(event) {
         event.preventDefault();
-        closeAddPhotoModal();
+        closeModals();
     });
 
     // Fonction pour afficher l'aperçu de l'image sélectionnée
@@ -142,4 +160,51 @@ document.addEventListener('DOMContentLoaded', function() {
         const category = categories.find(cat => cat.name === name);
         return category ? category.id : null;
     }
+
+    // Fonction pour créer les articles des projets
+    function creerArticlesProjets(projets) {
+        const GalleryPortfolio = document.querySelector(".gallery");
+        GalleryPortfolio.innerHTML = '';
+
+        projets.forEach(projet => {
+            const articleProjet = document.createElement("article");
+
+            const projetImage = document.createElement("img");
+            projetImage.src = projet.imageUrl;
+            articleProjet.appendChild(projetImage);
+
+            const projetDesc = document.createElement("p");
+            projetDesc.innerText = projet.title;
+            articleProjet.appendChild(projetDesc);
+
+            GalleryPortfolio.appendChild(articleProjet);
+        });
+    }
+
+    // Fonction pour mettre à jour la galerie dans la modale principale
+    function updateModalGallery(works) {
+        modalGallery.innerHTML = '';
+
+        works.forEach(work => {
+            const workItem = document.createElement('div');
+            workItem.classList.add('work-item');
+            workItem.setAttribute('data-id', work.id); // Ajout d'un attribut data-id
+
+            const imgElement = document.createElement('img');
+            imgElement.src = work.imageUrl;
+            imgElement.alt = work.title;
+
+            workItem.appendChild(imgElement);
+            modalGallery.appendChild(workItem);
+        });
+    }
+
+    // Fonction pour fermer les deux modales
+    function closeModals() {
+        closeAddPhotoModal();
+        // Ajoutez ici la fermeture de la seconde modale si nécessaire
+    }
+
+    // Initialiser la galerie avec les travaux existants
+    fetchAndDisplayWorks();
 });
