@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const previewImageElement = document.getElementById('preview-image');
     const token = localStorage.getItem('token');
 
+    // Cache l'élément img au départ
+    previewImageElement.style.display = 'none';
+
     // Vérifie si le token d'authentification est présent
     if (!token) {
         console.error("Le token d'authentification est manquant.");
@@ -32,6 +35,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fonction pour fermer la modale d'ajout de photos
     function closeAddPhotoModal() {
+        modalTitle.style.display = 'block';
+        addPhotoBtn.style.display = 'block';
+        modalGallery.style.display = 'grid';
+        modalHr.style.display = 'block';
+        modalAddPhoto.classList.add('hidden');
+    }
+
+    // Fonction pour fermer toutes les modales
+    function closeModals() {
         modalTitle.style.display = 'block';
         addPhotoBtn.style.display = 'block';
         modalGallery.style.display = 'grid';
@@ -113,6 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Réinitialisation de l'interface après soumission
             photoForm.reset();
             previewImageElement.src = '';
+            previewImageElement.style.display = 'none'; // Cache l'élément img
         });
     });
 
@@ -194,17 +207,49 @@ document.addEventListener('DOMContentLoaded', function() {
             imgElement.src = work.imageUrl;
             imgElement.alt = work.title;
 
+            // Création de l'icone de suppression
+            const deleteIcon = document.createElement('i');
+            deleteIcon.classList.add('fas', 'fa-trash-alt', 'delete-icon');
+            deleteIcon.setAttribute('data-id', work.id); // Ajout d'un attribut data-id
+
+            // Ajout d'un gestionnaire d'événement pour la suppression
+            deleteIcon.addEventListener('click', function(event) {
+                event.stopPropagation();
+                const workId = event.target.getAttribute('data-id');
+                deleteWork(workId);
+            });
+
             workItem.appendChild(imgElement);
+            workItem.appendChild(deleteIcon);
             modalGallery.appendChild(workItem);
         });
     }
 
-    // Fonction pour fermer les deux modales
-    function closeModals() {
-        closeAddPhotoModal();
-        // Ajoutez ici la fermeture de la seconde modale si nécessaire
+    // Fonction pour supprimer un travail
+    function deleteWork(workId) {
+        fetch(`http://localhost:5678/api/works/${workId}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erreur réseau');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Travail supprimé avec succès :', data);
+            fetchAndDisplayWorks(); // Rafraîchir la galerie après la suppression
+        })
+        .catch(error => {
+            console.error('Erreur lors de la suppression du travail :', error);
+            alert('Une erreur est survenue lors de la suppression du travail.');
+        });
     }
 
-    // Initialiser la galerie avec les travaux existants
+    // Fetch and display initial works
     fetchAndDisplayWorks();
+
 });

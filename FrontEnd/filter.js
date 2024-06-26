@@ -5,7 +5,7 @@ fetch("http://localhost:5678/api/works")
     })
     .then((data) => {
         const projets = data;
-        console.log(projets);
+       // console.log(projets);// VOIR MES PROJETS 
 
         // Fonction pour créer les articles des projets
         const creerArticlesProjets = (projets) => {
