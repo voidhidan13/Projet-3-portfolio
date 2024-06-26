@@ -1,3 +1,5 @@
+//selection des élements du dom
+
 document.addEventListener('DOMContentLoaded', function() {
     const addPhotoButton = document.getElementById('addphoto');
     const modalGallery = document.getElementById('modal-gallery');

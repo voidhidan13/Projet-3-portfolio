@@ -1,3 +1,4 @@
+//Selection des élements du dom
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('modal');
     const modalGallery = document.getElementById('modal-gallery');
