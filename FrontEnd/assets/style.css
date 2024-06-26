@@ -351,7 +351,7 @@ footer nav ul {
     color: black;
     font-weight: 400;
     font-size: 26px;
-	margin-bottom: 36px;
+	margin-bottom: 20px;
 	margin-top: 15px;
 }
 
@@ -372,8 +372,8 @@ footer nav ul {
 }
 
 hr {
-    margin-top: 20px; /* Espacement par rapport au contenu précédent */
-    width: 68%; /* Largeur de la ligne horizontale sur toute la largeur */
+    margin-top: 15px; /* Espacement par rapport au contenu précédent */
+    width: 72%; /* Largeur de la ligne horizontale sur toute la largeur */
     border: none; /* Pas de bordure */
     border-top: 1px solid #ccc; /* Bordure supérieure solide */
 }
