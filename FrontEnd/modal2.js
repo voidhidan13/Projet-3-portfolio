@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
         modalAddPhoto.classList.add('hidden');
     }
 
-    // Fonction pour récupérer et afficher les travaux
+    // Fonction pour récupérer et afficher les travaux afin de les mettre a jour par la suite
     function fetchAndDisplayWorks() {
         fetch('http://localhost:5678/api/works', {
             method: 'GET',
