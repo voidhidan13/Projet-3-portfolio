@@ -21,6 +21,19 @@ html, body {
     background-color: #FFFEF8;
 }
 
+input:focus {
+    outline: none;
+}
+
+input:not(:focus) {
+    outline: none; 
+    
+}
+
+a:visited {
+    color: inherit; 
+}
+
 body {
     margin: auto;
 	font-family: 'Work Sans';
@@ -163,6 +176,7 @@ main {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    color: black ;
 }
 
 .missingpassword a {

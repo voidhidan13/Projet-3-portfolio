@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const balisemail = document.getElementById("loginemail");
                 const loginmail = balisemail.value;
-                console.log(loginmail);
+                //console.log(loginmail);//
 
                 const balisepassword = document.getElementById("password");
                 const loginpassword = balisepassword.value;
-                console.log(loginpassword);
+                //console.log(loginpassword);//
 
                 const errorMessage = document.getElementById("errorMessage");
 

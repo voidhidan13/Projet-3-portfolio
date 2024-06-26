@@ -51,6 +51,15 @@ table {
 	--main-color : #1D6154;
 }
 
+input:focus {
+    outline: none; 
+}
+a:visited {
+    color: inherit; 
+    text-decoration: none; 
+}
+
+
 
 
 body {
@@ -332,9 +341,9 @@ footer nav ul {
     border-radius: 8px;
     width: 630px; 
     gap: 25px;
-    box-sizing: border-box; /* Assurez-vous que le padding est pris en compte dans la largeur totale */
-    max-height: 90vh; /* Pour s'assurer que la modale ne dépasse pas la hauteur de l'écran */
-    overflow-y: auto; /* Ajouter un défilement si le contenu dépasse la hauteur de la modale */
+    box-sizing: border-box; 
+    max-height: 90vh; 
+    overflow-y: auto; 
     height: 690px;
 }
 
@@ -426,26 +435,26 @@ a {
 
 /* Pour les boutons */
 button {
-    border: none; /* Supprime la bordure */
-    outline: none; /* Supprime l'outline (mais assurez-vous de gérer l'accessibilité) */
+    border: none; 
+    outline: none; 
 }
 
 /* Styles spécifiques pour la modale d'ajout de photo */
 #modal-add-photo.hidden {
-    display: none; /* Cacher par défaut */
+    display: none; 
 }
 
 #modal-add-photo .modal-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Centrer le contenu verticalement */
+    justify-content: center; 
     background: white;
     padding: 20px;
     border-radius: 8px;
-    width: 630px; /* Ajustez la largeur selon vos besoins */
-    box-sizing: border-box; /* Assurez-vous que le padding est pris en compte dans la largeur totale */
-    max-height: 90vh; /* Pour s'assurer que la modale ne dépasse pas la hauteur de l'écran */
+    width: 630px; 
+    box-sizing: border-box;  
+    max-height: 90vh;
     overflow-y: auto; 
 	
 }

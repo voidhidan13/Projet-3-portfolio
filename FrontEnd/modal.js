@@ -39,13 +39,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fonction pour mettre à jour la galerie principale et la modale
     function updateGalleryAndModal(works) {
-        updateGallery(works); // Mettre à jour la galerie principale
-        updateModal(works); // Mettre à jour la modale d'édition des travaux
+        updateGallery(works); 
+        updateModal(works); 
     }
 
     // Fonction pour mettre à jour la galerie principale
     function updateGallery(works) {
-        GalleryPortfolio.innerHTML = ''; // Effacer la galerie existante
+        GalleryPortfolio.innerHTML = ''; 
 
         works.forEach(work => {
             const articleProjet = document.createElement("article");
@@ -65,13 +65,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fonction pour mettre à jour la modale d'édition des travaux
     function updateModal(works) {
-        modalGallery.innerHTML = ''; // Effacer la modale existante
+        modalGallery.innerHTML = ''; 
 
         works.forEach(work => {
             const workItem = document.createElement('div');
             workItem.classList.add('work-item');
-            workItem.setAttribute('data-id', work.id); // Ajout d'un attribut data-id
-
+            workItem.setAttribute('data-id', work.id); 
             const imgElement = document.createElement('img');
             imgElement.src = work.imageUrl;
             imgElement.alt = work.title;
@@ -102,8 +101,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (response.ok) {
                 console.log(`Travail avec ID ${workId} supprimé avec succès`);
-                itemToRemove.remove(); // Supprimer l'élément de l'interface après suppression
-                removeWorkFromGallery(workId); // Supprimer l'élément de la galerie principale
+                itemToRemove.remove(); 
+                removeWorkFromGallery(workId); 
             } else {
                 console.error('Erreur lors de la suppression du travail:', response.status, response.statusText);
             }
